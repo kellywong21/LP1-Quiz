@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public class SecondPage extends AppCompatActivity {
     TextView tvDate,tvMood;
     Button btnEmail;
-    ArrayList<Mood>mood;
     String date,moods;
 
     @Override
