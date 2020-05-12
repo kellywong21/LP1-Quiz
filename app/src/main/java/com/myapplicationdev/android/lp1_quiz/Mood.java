@@ -1,6 +1,8 @@
 package com.myapplicationdev.android.lp1_quiz;
 
-public class Mood {
+import java.io.Serializable;
+
+public class Mood implements Serializable {
     private String mood;
     private String dateTime;
 

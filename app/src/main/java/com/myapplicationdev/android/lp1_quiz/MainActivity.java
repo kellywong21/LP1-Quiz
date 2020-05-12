@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         lvMood = findViewById(R.id.lvMood);
         etMood = findViewById(R.id.etMood);
         btnSubmit = findViewById(R.id.btnSubmit);
-        moodList = new ArrayList<Mood>();
+        moodList = new ArrayList<>();
 
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +46,15 @@ public class MainActivity extends AppCompatActivity {
                 lvMood.setAdapter(aa);
                 aa.notifyDataSetChanged();
 
+            }
+        });
+
+        lvMood.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MainActivity.this,SecondPage.class);
+                intent.putExtra("position",moodList.get(i));
+                startActivity(intent);
             }
         });
     }
